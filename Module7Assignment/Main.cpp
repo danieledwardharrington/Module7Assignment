@@ -6,6 +6,7 @@ Module 7 Assignment: Bank accounts
 */
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
