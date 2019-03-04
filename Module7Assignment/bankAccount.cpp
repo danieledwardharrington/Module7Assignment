@@ -10,9 +10,15 @@ string holderName;
 double accountBalance;
 
 
-//constructor
+//constructors
 bankAccount::bankAccount()
 {
+}
+
+bankAccount::bankAccount(int number, string name, double balance) {
+	accountNumber = number;
+	holderName = name;
+	accountBalance = balance;
 }
 
 //destructor
