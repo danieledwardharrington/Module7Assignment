@@ -15,12 +15,6 @@ bankAccount::bankAccount()
 {
 }
 
-bankAccount::bankAccount(int number, string name, double balance) {
-	accountNumber = number;
-	holderName = name;
-	accountBalance = balance;
-}
-
 //destructor
 bankAccount::~bankAccount()
 {

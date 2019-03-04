@@ -18,8 +18,7 @@ protected:
 	//making these protected so user can't create these objects directly
 	//constructor and destructor
 	bankAccount();
-	bankAccount(int number, string name, double balance);
-	~bankAccount();
+	virtual ~bankAccount();
 
 public:
 	//getters and setters
