@@ -66,12 +66,19 @@ void serviceChargeChecking::withdrawMoney(double money) {
 }//withdrawMoney method
 
 void serviceChargeChecking::writeCheck(double money) {
-	accountBalance -= money;
-	checks.push_back(money);
+	
+	if (checks.size() < maxChecks) {
+		accountBalance -= money;
+		checks.push_back(money);
+	}
+	else {
+		cout << "Maximum checks reached. Cannot write another check." << endl;
+	}
 
 }//writeCheck method
 
 void serviceChargeChecking::createStatement() {
+	
 	//header
 	cout << "Service Charge Checking Statement" << endl;
 	cout << "Account Number: " << accountNumber << endl;
@@ -83,12 +90,12 @@ void serviceChargeChecking::createStatement() {
 
 	//account details
 	cout << setw(25) << "Account Balance:" << setw(12) << accountBalance << endl;
-	cout << setw(25) << "Maximum Checks" << setw(12) << maxChecks << endl;
-	cout << setw(25) << "Checks Written" << setw(12) << checks.size() << endl;
+	cout << setw(25) << "Maximum Checks:" << setw(12) << maxChecks << endl;
+	cout << setw(25) << "Checks Written:" << setw(12) << checks.size() << endl;
 
 	cout << endl;
 
-	//transactions and penalties
+	//transactions and checks
 
 	//for each to print deposits
 	cout << "Deposits" << endl << endl;
@@ -106,13 +113,14 @@ void serviceChargeChecking::createStatement() {
 
 	cout << endl; //spacing
 
-	//for each for to print penalties
+	//for each for to print checks
 	cout << "Checks" << endl << endl;
 	for (double check : checks) {
 		cout << check << endl;
 	}//for each
 
 	if (accountBalance < 0) {
-		cout << "YOUR ACCOUNT BALANCE HAS FALLEN BELOW $0. PLEASE DEPOSIT FUNDS AS SOON AS POSSIBLE AT RISK OF ACCOUNT CLOSURE" << endl;
-	}
+		cout << "YOUR ACCOUNT BALANCE HAS FALLEN BELOW $0. PLEASE DEPOSIT FUNDS AS SOON AS POSSIBLE AT RISK OF ACCOUNT CLOSURE." << endl;
+	}//if
+
 }//createStatement method

@@ -36,6 +36,9 @@
     <ClCompile Include="serviceChargeChecking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="noServiceChargeChecking.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bankAccount.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="serviceChargeChecking.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="noServiceChargeChecking.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
