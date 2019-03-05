@@ -1,3 +1,12 @@
+/*
+Class for the certificate of deposit accounts. For the penalty, I couldn't
+find very much super specific information on the penalty for withdrawing
+before the maturity date, so I made the penalty equal to the interest rate
+times the account balance, times half the total maturity months. The book's
+instructions were vague for how they wanted to calculate the penalty so I feel
+this sufficiently matches the book's definition of a "stiff" penalty.
+*/
+
 #include "certificateOfDeposit.h"
 #include <iostream>
 #include <string>
@@ -74,7 +83,7 @@ void certificateOfDeposit::withdrawMoney(double money) {
 
 	if (currentCDMonth < maturityMonths) {
 
-		penalty = (interestRate * money) * (maturityMonths / 2);
+		penalty = (interestRate * accountBalance) * (maturityMonths / 2);
 
 	}
 	else {
@@ -103,7 +112,7 @@ void certificateOfDeposit::createStatement() {
 
 	//account details
 	cout << setw(25) << "Account Balance:" << setw(12) << accountBalance << endl;
-	cout << setw(25) << "CD Maturity" << setw(12) << accountBalance << endl;
+	cout << setw(25) << "CD Maturity" << setw(12) << maturityMonths << endl;
 	cout << setw(25) << "Current CD Month:" << setw(12) << currentCDMonth << endl;
 	cout << setw(25) << "Interest Rate:" << setw(12) << interestRate << endl;
 

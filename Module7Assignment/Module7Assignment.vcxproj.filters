@@ -24,12 +24,18 @@
     <ClCompile Include="certificateOfDeposit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="savingsAccount.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bankAccount.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="certificateOfDeposit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="savingsAccount.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
