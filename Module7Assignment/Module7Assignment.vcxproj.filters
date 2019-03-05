@@ -30,6 +30,12 @@
     <ClCompile Include="highInterestSavings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="checkingAccount.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="serviceChargeChecking.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bankAccount.h">
@@ -42,6 +48,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="highInterestSavings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="checkingAccount.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="serviceChargeChecking.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

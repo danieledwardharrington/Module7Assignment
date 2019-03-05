@@ -8,6 +8,8 @@ High interest savings account class
 #include <iomanip>
 #include <vector>
 
+using namespace std;
+
 //properties
 double minBalance;
 
