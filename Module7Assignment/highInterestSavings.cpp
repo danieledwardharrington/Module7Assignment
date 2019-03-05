@@ -61,6 +61,8 @@ void highInterestSavings::withdrawMoney(double money) {
 }//withdrawMoney method
 
 void highInterestSavings::createStatement() {
+	accountBalance = (accountBalance * interestRate) + accountBalance;
+
 	interestRate *= 100; //to make it a cleaner rate for printing
 
 	//header

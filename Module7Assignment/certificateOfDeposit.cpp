@@ -98,6 +98,7 @@ void certificateOfDeposit::withdrawMoney(double money) {
 }//withdrawMoney method
 
 void certificateOfDeposit::createStatement() {
+	accountBalance = (accountBalance * interestRate) + accountBalance;
 
 	interestRate *= 100; //to make it a cleaner rate for printing
 

@@ -118,6 +118,7 @@
     <ClCompile Include="bankAccount.cpp" />
     <ClCompile Include="certificateOfDeposit.cpp" />
     <ClCompile Include="checkingAccount.cpp" />
+    <ClCompile Include="highInterestChecking.cpp" />
     <ClCompile Include="highInterestSavings.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="noServiceChargeChecking.cpp" />
@@ -128,6 +129,7 @@
     <ClInclude Include="bankAccount.h" />
     <ClInclude Include="certificateOfDeposit.h" />
     <ClInclude Include="checkingAccount.h" />
+    <ClInclude Include="highInterestChecking.h" />
     <ClInclude Include="highInterestSavings.h" />
     <ClInclude Include="noServiceChargeChecking.h" />
     <ClInclude Include="savingsAccount.h" />

@@ -19,6 +19,7 @@ using namespace std;
 
 //variable for maximum checks written
 int maxChecks;
+double monthlyFee;
 
 //constructors and destructor
 serviceChargeChecking::serviceChargeChecking()
@@ -26,8 +27,9 @@ serviceChargeChecking::serviceChargeChecking()
 }
 
 
-serviceChargeChecking::serviceChargeChecking(int maximum, int number, string name, double balance) {
+serviceChargeChecking::serviceChargeChecking(int maximum, double fee, int number, string name, double balance) {
 	maxChecks = maximum;
+	monthlyFee = fee;
 	accountNumber = number;
 	holderName = name;
 	accountBalance = balance;
@@ -45,6 +47,14 @@ int serviceChargeChecking::getMaxChecks() {
 
 void serviceChargeChecking::setMaxChecks(int maximum) {
 	maxChecks = maximum;
+}
+
+double serviceChargeChecking::getMonthlyFee() {
+	return monthlyFee;
+}
+
+void serviceChargeChecking::setMonthlyFee(double fee) {
+	monthlyFee = fee;
 }
 
 //methods
@@ -79,6 +89,8 @@ void serviceChargeChecking::writeCheck(double money) {
 
 void serviceChargeChecking::createStatement() {
 	
+	accountBalance -= monthlyFee;
+
 	//header
 	cout << "Service Charge Checking Statement" << endl;
 	cout << "Account Number: " << accountNumber << endl;
@@ -92,6 +104,7 @@ void serviceChargeChecking::createStatement() {
 	cout << setw(25) << "Account Balance:" << setw(12) << accountBalance << endl;
 	cout << setw(25) << "Maximum Checks:" << setw(12) << maxChecks << endl;
 	cout << setw(25) << "Checks Written:" << setw(12) << checks.size() << endl;
+	cout << setw(25) << "Monthly Fee:" << setw(12) << monthlyFee << endl;
 
 	cout << endl;
 

@@ -79,7 +79,8 @@ void noServiceChargeChecking::writeCheck(double money) {
 }//writeCheck method
 
 void noServiceChargeChecking::createStatement() {
-	
+	accountBalance = (accountBalance * interestRate) + accountBalance;
+
 	interestRate *= 100; //for cleaner printing
 
 	//header
