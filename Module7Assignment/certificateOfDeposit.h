@@ -8,6 +8,10 @@ protected:
 	double interestRate;
 	int currentCDMonth;
 
+	vector<double> withdrawals;
+	vector<double> deposits;
+	vector<double> penalties;
+
 //methods
 public:
 	//constructors and destructor

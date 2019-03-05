@@ -110,6 +110,27 @@ void certificateOfDeposit::createStatement() {
 	cout << endl;
 
 	//transactions and penalties
+
+	//for each to print deposits
 	cout << "Deposits" << endl << endl;
+	for (double dep : deposits) {
+		cout << dep << endl;
+	}//for each
+
+	cout << endl; //spacing
+
+	//for each to print withdrawals
+	cout << "Withdrawals" << endl << endl;
+	for (double w : withdrawals) {
+		cout << w << endl;
+	}//for each
+
+	cout << endl; //spacing
+
+	//for each for to print penalties
+	cout << "Penalties" << endl << endl;
+	for (double pen : penalties) {
+		cout << pen << endl;
+	}//for each
 
 }//createStatement method
