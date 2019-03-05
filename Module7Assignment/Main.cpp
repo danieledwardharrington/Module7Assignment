@@ -9,6 +9,15 @@ month statement and showing the statement as if it has been one month
 from the creation of the class (AKA the instantiation of the object).
 */
 
+#include "bankAccount.h"
+#include "certificateOfDeposit.h"
+#include "savingsAccount.h"
+#include "highInterestSavings.h"
+#include "checkingAccount.h"
+#include "serviceChargeChecking.h"
+#include "noServiceChargeChecking.h"
+#include "highInterestChecking.h"
+
 #include <iostream>
 #include <string>
 #include <iomanip>
