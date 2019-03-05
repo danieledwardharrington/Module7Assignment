@@ -25,13 +25,10 @@ public:
 	int getCurrentCDMonth();
 	void setCurrentCDMonth(int month);
 
-	//virtual methods
-	virtual void depositMoney() = 0;
-	virtual void withdrawMoney() = 0;
-	virtual void createStatement() = 0;
-
 	//methods
-	void depositMoney(double money);
+	void depositMoney(double money) override;
+	void withdrawMoney(double money) override;
+	void createStatement() override;
 
 };
 

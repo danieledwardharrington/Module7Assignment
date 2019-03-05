@@ -46,8 +46,8 @@ double bankAccount::getAccountBalance() {
 }
 
 //virtual functions
-void bankAccount::depositMoney() {};
+void bankAccount::depositMoney(double money) {};
 
-void bankAccount::withdrawMoney() {};
+void bankAccount::withdrawMoney(double money) {};
 
 void bankAccount::createStatement() {};

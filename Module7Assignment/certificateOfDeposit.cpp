@@ -55,6 +55,14 @@ void certificateOfDeposit::setCurrentCDMonth(int month) {
 }
 
 //methods
-void certificateOfDeposit::depositMoney(double money) override {
+void certificateOfDeposit::depositMoney(double money) {
 	accountBalance += money;
-}
+}//depositMoney method
+
+void certificateOfDeposit::withdrawMoney(double money) {
+	accountBalance -= money;
+}//withdrawMoney method
+
+void certificateOfDeposit::createStatement() {
+
+}//createStatement method

@@ -32,8 +32,8 @@ public:
 	double getAccountBalance();
 
 	//virtual functions
-	virtual void depositMoney() = 0;
-	virtual void withdrawMoney() = 0;
+	virtual void depositMoney(double money) = 0;
+	virtual void withdrawMoney(double money) = 0;
 	virtual void createStatement() = 0;
 
 }; //bankAccount class
