@@ -2,6 +2,12 @@
 #include "bankAccount.h"
 class savingsAccount : public bankAccount
 {
+protected:
+
+	//properties
+	double interestRate;
+	vector<double> deposits;
+	vector<double> withdrawals;
 
 public:
 
