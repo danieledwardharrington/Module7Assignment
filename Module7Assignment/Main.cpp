@@ -42,8 +42,25 @@ const double COD_RATE = 0.03; //pretty much just for certificate of deposit
 const double STANDARD_MIN_BALANCE = 100;
 const double HIGH_MIN_BALANCE = 300;
 
+//method declarations
+void selectBaseAccount();
+void selectSavings(int& accountType);
+void selectChecking(int& accountType);
+void createStandardSavings();
+void createHighInterestSavings();
+void createServiceChargeChecking();
+void createNoServiceChargeChecking();
+void createHighInterestChecking();
+void createCoD();
+
+
 int main() {
 
+	//call select base account method, calls will be done from the methods from now on
+	selectBaseAccount();
+
+	//pause the program
+	system("pause");
 
 }//main method
 
@@ -101,8 +118,8 @@ void selectSavings(int& accountType) {
 	accountType = 0; //resetting the value
 
 	vector<string> choices;
-	choices.push_back("[1] Standard Savings");
-	choices.push_back("[2] High Interest Savings");
+	choices.push_back("[1] Standard Savings - Standard interest rate, no minimum balance required");
+	choices.push_back("[2] High Interest Savings - Higher interest rate, standard minimum balance required");
 
 	cout << endl; //spacing
 
@@ -136,9 +153,9 @@ void selectChecking(int& accountType) {
 	accountType = 0; //resetting the value
 
 	vector<string> choices;
-	choices.push_back("[1] Standard Service Charge Checking");
-	choices.push_back("[2] Standard No Service Charge Checking");
-	choices.push_back("[3] High Interest No Service Charge Checking");
+	choices.push_back("[1] Standard Service Charge Checking - No interest, limited checks allowed, monthly service fee, no minimum balance required");
+	choices.push_back("[2] Standard No Service Charge Checking - Standard interest rate, unlimited checks, no service fee, standard minimum balance required");
+	choices.push_back("[3] High Interest No Service Charge Checking - Higher interest rate, unlimited checks, no service fee, higher minimum balance required");
 
 	cout << endl; //spacing
 
