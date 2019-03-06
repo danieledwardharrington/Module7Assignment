@@ -36,8 +36,9 @@ using namespace std;
 
 //constants for high and standard interest rates and minimukm balances;
 //I'm using these numbers across all types of accounts
-const double HIGH_RATE = 0.00135;
+const double HIGH_RATE = 0.0135;
 const double STANDARD_RATE = 0.0001;
+const double COD_RATE = 0.03; //pretty much just for certificate of deposit
 const double STANDARD_MIN_BALANCE = 100;
 const double HIGH_MIN_BALANCE = 300;
 
@@ -285,8 +286,14 @@ void createHighInterestSavings() {
 	cin >> holderName;
 	highSavings.setHolderName(holderName);
 
-	cout << "Set initial account balance:" << endl;
+	cout << "Set initial account balance (Starting balance must be AT LEAST " << STANDARD_MIN_BALANCE << "):" << endl;
 	cin >> startingBalance;
+	if (startingBalance < STANDARD_MIN_BALANCE) {
+		cout << "Invalid input. Starting over." << endl << endl;
+		selectBaseAccount();
+	}//if
+	highSavings.setAccountBalance(startingBalance);
+
 	//in case the input is negative
 	if (startingBalance < 0) {
 		cout << "Invalid input. Starting over." << endl << endl;
@@ -384,5 +391,127 @@ void createHighInterestSavings() {
 
 //method for handling certificate of deposit
 void createCoD() {
-	
+	cout << "Certificate of Deposit" << endl << endl; //header
+
+	//variables for do/while loops later
+	char loopResponse;
+	char answer;
+	double deposit;
+	double withdrawal;
+
+	//variables for account
+	int matMonths;
+	int currentMonth;
+	int accountNumber;
+	string holderName;
+	double startingBalance;
+
+	certificateOfDeposit codAccount; //creating object
+
+	//setting some values automatically
+	codAccount.setInterestRate(COD_RATE);
+	accountNumber = rand() % 100 + 1; //automatically setting random account number
+	codAccount.setAccountNumber(accountNumber);
+
+	//getting user input for the rest
+	cout << "Enter the account holder name:" << endl;
+	cin >> holderName;
+	codAccount.setHolderName(holderName);
+
+	cout << "Set initial account balance:" << endl;
+	cin >> startingBalance;
+	//in case the input is negative
+	if (startingBalance < 0) {
+		cout << "Invalid input. Starting over." << endl << endl;
+		selectBaseAccount();
+	}//if
+	codAccount.setAccountBalance(startingBalance);
+
+	//loops for testing withdrawals and deposits
+	do {
+		loopResponse = 'N'; //resetting
+		answer = ' ';
+		deposit = 0;
+
+		cout << "Would you like to make a deposit? (Y/N)" << endl;
+		cin >> answer;
+		answer = toupper(answer); //making it capital
+		if (answer == 'N') {
+			break;
+		}
+		else if (answer == 'Y') {
+			cout << "Enter the amount you'd like to deposit:" << endl;
+			cin >> deposit;
+			if (deposit > 0) {
+				codAccount.depositMoney(deposit);
+			}
+			else {
+				cout << "Invalid input. Starting over." << endl << endl;
+				selectBaseAccount();
+			}//nested if
+		}
+		else {
+			cout << "Invalid input. Starting over." << endl << endl;
+			selectBaseAccount();
+		}//if
+
+		cout << "Would you like to make another deposit? (Y/N)" << endl;
+		cin >> loopResponse;
+		loopResponse = toupper(loopResponse); //making it capital
+
+	} while (loopResponse == 'Y');
+
+	//for invalid input
+	if (loopResponse != 'N') {
+		cout << "Invalid input. Starting over." << endl << endl;
+		selectBaseAccount();
+	}//if
+
+	do {
+		loopResponse = 'N'; //resetting
+		answer = ' ';
+		withdrawal = 0;
+
+		cout << "Would you like to make a withdrawal? (Y/N)" << endl;
+		cout << "NOTE: Withdrawing before account maturity incurs an additional fee." << endl;
+		cin >> answer;
+		answer = toupper(answer); //making it capital
+		if (answer == 'N') {
+			break;
+		}
+		else if (answer == 'Y') {
+			cout << "Enter the amount you'd like to withdraw:" << endl;
+			cin >> withdrawal;
+			if (withdrawal < standardSavings.getAccountBalance && withdrawal > 0) {
+				standardSavings.withdrawMoney(withdrawal);
+			}
+			else {
+				cout << "Invalid input. Starting over." << endl << endl;
+				selectBaseAccount();
+			}//nested if
+		}
+		else {
+			cout << "Invalid input. Starting over." << endl << endl;
+			selectBaseAccount();
+		}//if
+
+		cout << "Would you like to make another withdrawal? (Y/N)" << endl;
+		cin >> loopResponse;
+		loopResponse = toupper(loopResponse); //making it capital
+
+	} while (loopResponse == 'Y');
+
+	//for invalid input
+	if (loopResponse != 'N') {
+		cout << "Invalid input. Starting over." << endl << endl;
+		selectBaseAccount();
+	}//if
+
+	cout << endl; //spacing
+	cout << "Showing statement:" << endl << endl; //telling the user the statement is being shown
+
+	standardSavings.createStatement();
+
+	cout << endl; //spacing
+
 }//createCoD method
