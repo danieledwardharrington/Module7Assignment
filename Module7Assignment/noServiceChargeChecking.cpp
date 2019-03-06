@@ -84,7 +84,7 @@ void noServiceChargeChecking::createStatement() {
 	interestRate *= 100; //for cleaner printing
 
 	//header
-	cout << "Service Charge Checking Statement" << endl;
+	cout << "No Service Charge Checking Statement" << endl;
 	cout << "Account Number: " << accountNumber << endl;
 	cout << "Account Holder: " << holderName << endl << endl;
 
