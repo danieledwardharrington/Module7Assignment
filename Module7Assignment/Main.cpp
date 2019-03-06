@@ -288,14 +288,8 @@ void createHighInterestSavings() {
 
 	cout << "Set initial account balance (Starting balance must be AT LEAST " << STANDARD_MIN_BALANCE << "):" << endl;
 	cin >> startingBalance;
+	//in case input is less than the minimum balance
 	if (startingBalance < STANDARD_MIN_BALANCE) {
-		cout << "Invalid input. Starting over." << endl << endl;
-		selectBaseAccount();
-	}//if
-	highSavings.setAccountBalance(startingBalance);
-
-	//in case the input is negative
-	if (startingBalance < 0) {
 		cout << "Invalid input. Starting over." << endl << endl;
 		selectBaseAccount();
 	}//if
@@ -398,6 +392,7 @@ void createCoD() {
 	char answer;
 	double deposit;
 	double withdrawal;
+	double fee;
 
 	//variables for account
 	int matMonths;
@@ -426,6 +421,19 @@ void createCoD() {
 		selectBaseAccount();
 	}//if
 	codAccount.setAccountBalance(startingBalance);
+
+	cout << "Set the maturity duration of the account:" << endl;
+	cin >> matMonths;
+	//can't do it for less than a month
+	if (matMonths < 1) {
+		cout << "Invalid input. Starting over." << endl << endl;
+		selectBaseAccount();
+	}
+	codAccount.setMaturityMonths(matMonths);
+
+	cout << "Set the current month:" << endl;
+	cin >> currentMonth;
+	codAccount.setCurrentCDMonth(currentMonth);
 
 	//loops for testing withdrawals and deposits
 	do {
@@ -471,6 +479,7 @@ void createCoD() {
 		loopResponse = 'N'; //resetting
 		answer = ' ';
 		withdrawal = 0;
+		fee = 0;
 
 		cout << "Would you like to make a withdrawal? (Y/N)" << endl;
 		cout << "NOTE: Withdrawing before account maturity incurs an additional fee." << endl;
@@ -482,8 +491,9 @@ void createCoD() {
 		else if (answer == 'Y') {
 			cout << "Enter the amount you'd like to withdraw:" << endl;
 			cin >> withdrawal;
-			if (withdrawal < standardSavings.getAccountBalance && withdrawal > 0) {
-				standardSavings.withdrawMoney(withdrawal);
+			fee = (codAccount.getAccountBalance() * COD_RATE) * (matMonths / 2);
+			if (withdrawal + fee <= codAccount.getAccountBalance && withdrawal > 0) {
+				codAccount.withdrawMoney(withdrawal);
 			}
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
@@ -510,7 +520,7 @@ void createCoD() {
 	cout << endl; //spacing
 	cout << "Showing statement:" << endl << endl; //telling the user the statement is being shown
 
-	standardSavings.createStatement();
+	codAccount.createStatement();
 
 	cout << endl; //spacing
 
