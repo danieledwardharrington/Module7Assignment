@@ -18,6 +18,6 @@ protected:
 public:
 
 	//methods
-	virtual void writeCheck(double money) = 0;
+	virtual void writeCheck(double& money) = 0;
 };
 

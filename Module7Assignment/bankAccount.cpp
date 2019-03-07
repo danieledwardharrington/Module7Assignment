@@ -21,33 +21,33 @@ bankAccount::~bankAccount()
 }
 
 //getters and setters
-void bankAccount::setAccountNumber(int number) {
+void bankAccount::setAccountNumber(int& number) {
 	accountNumber = number;
 }
 
-int bankAccount::getAccountNumber() {
+int& bankAccount::getAccountNumber() {
 	return accountNumber;
 }
 
-void bankAccount::setHolderName(string name) {
+void bankAccount::setHolderName(string& name) {
 	holderName = name;
 }
 
-string bankAccount::getHolderName() {
+string& bankAccount::getHolderName() {
 	return holderName;
 }
 
-void bankAccount::setAccountBalance(double balance) {
+void bankAccount::setAccountBalance(double& balance) {
 	accountBalance = balance;
 }
 
-double bankAccount::getAccountBalance() {
+double& bankAccount::getAccountBalance() {
 	return accountBalance;
 }
 
 //virtual functions
-void bankAccount::depositMoney(double money) {};
+void bankAccount::depositMoney(double& money) {};
 
-void bankAccount::withdrawMoney(double money) {};
+void bankAccount::withdrawMoney(double& money) {};
 
 void bankAccount::createStatement() {};

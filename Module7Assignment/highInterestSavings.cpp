@@ -18,7 +18,7 @@ highInterestSavings::highInterestSavings()
 {
 }
 
-highInterestSavings::highInterestSavings(double minimum, double rate, int number, string name, double balance) {
+highInterestSavings::highInterestSavings(double& minimum, double& rate, int& number, string& name, double& balance) {
 	minBalance = minimum;
 	interestRate = rate;
 	accountNumber = number;
@@ -32,22 +32,22 @@ highInterestSavings::~highInterestSavings()
 }
 
 //getters and setters
-double highInterestSavings::getMinBalance() {
+double& highInterestSavings::getMinBalance() {
 	return minBalance;
 }
 
-void highInterestSavings::setMinBalance(double minimum) {
+void highInterestSavings::setMinBalance(double& minimum) {
 	minBalance = minimum;
 }
 
 //methods
-void highInterestSavings::depositMoney(double money) {
+void highInterestSavings::depositMoney(double& money) {
 	accountBalance += money; //adjusting balance
 
 	deposits.push_back(money); //adding to deposits
 }//depositMoney method
 
-void highInterestSavings::withdrawMoney(double money) {
+void highInterestSavings::withdrawMoney(double& money) {
 	if (accountBalance <= minBalance) {
 		cout << "Cannot withdraw below minimum balance." << endl;
 		

@@ -16,22 +16,22 @@ protected:
 public:
 	//constructors and destructor
 	certificateOfDeposit();
-	certificateOfDeposit(int matMonths, double rate, int curMonth, int number, string name, double balance);
+	certificateOfDeposit(int& matMonths, double& rate, int& curMonth, int& number, string& name, double& balance);
 	~certificateOfDeposit();
 
 	//getters and setters
-	int getMaturityMonths();
-	void setMaturityMonths(int months);
+	int& getMaturityMonths();
+	void setMaturityMonths(int& months);
 
-	double getInterestRate();
-	void setInterestRate(double rate);
+	double& getInterestRate();
+	void setInterestRate(double& rate);
 
-	int getCurrentCDMonth();
-	void setCurrentCDMonth(int month);
+	int& getCurrentCDMonth();
+	void setCurrentCDMonth(int& month);
 
 	//methods
-	void depositMoney(double money) override;
-	void withdrawMoney(double money) override;
+	void depositMoney(double& money) override;
+	void withdrawMoney(double& money) override;
 	void createStatement() override;
 
 };

@@ -27,8 +27,8 @@ serviceChargeChecking::serviceChargeChecking()
 }
 
 
-serviceChargeChecking::serviceChargeChecking(int maximum, double fee, int number, string name, double balance) {
-	maxChecks = maximum;
+serviceChargeChecking::serviceChargeChecking(int& checks, double& fee, int& number, string& name, double& balance) {
+	maxChecks = checks;
 	monthlyFee = fee;
 	accountNumber = number;
 	holderName = name;
@@ -41,30 +41,30 @@ serviceChargeChecking::~serviceChargeChecking()
 }
 
 //getters and setters
-int serviceChargeChecking::getMaxChecks() {
+int& serviceChargeChecking::getMaxChecks() {
 	return maxChecks;
 }
 
-void serviceChargeChecking::setMaxChecks(int maximum) {
+void serviceChargeChecking::setMaxChecks(int& maximum) {
 	maxChecks = maximum;
 }
 
-double serviceChargeChecking::getMonthlyFee() {
+double& serviceChargeChecking::getMonthlyFee() {
 	return monthlyFee;
 }
 
-void serviceChargeChecking::setMonthlyFee(double fee) {
+void serviceChargeChecking::setMonthlyFee(double& fee) {
 	monthlyFee = fee;
 }
 
 //methods
-void serviceChargeChecking::depositMoney(double money) {
+void serviceChargeChecking::depositMoney(double& money) {
 	accountBalance += money;
 
 	deposits.push_back(money);
 }//depositMoney method
 
-void serviceChargeChecking::withdrawMoney(double money) {
+void serviceChargeChecking::withdrawMoney(double& money) {
 	if (accountBalance <= 0) {
 		cout << "No money to withdraw" << endl;
 		money = 0;
@@ -75,7 +75,7 @@ void serviceChargeChecking::withdrawMoney(double money) {
 	}
 }//withdrawMoney method
 
-void serviceChargeChecking::writeCheck(double money) {
+void serviceChargeChecking::writeCheck(double& money) {
 	
 	if (checks.size() < maxChecks) {
 		accountBalance -= money;

@@ -26,7 +26,7 @@ noServiceChargeChecking::noServiceChargeChecking()
 {
 }
 
-noServiceChargeChecking::noServiceChargeChecking(double rate, double minimum, int number, string name, double balance) {
+noServiceChargeChecking::noServiceChargeChecking(double& rate, double& minimum, int& number, string& name, double& balance) {
 	interestRate = rate;
 	minBalance = minimum;
 	accountNumber = number;
@@ -39,30 +39,30 @@ noServiceChargeChecking::~noServiceChargeChecking()
 }
 
 //getters and setters
-double noServiceChargeChecking::getInterestRate() {
+double& noServiceChargeChecking::getInterestRate() {
 	return interestRate;
 }
 
-void noServiceChargeChecking::setInterestRate(double rate) {
+void noServiceChargeChecking::setInterestRate(double& rate) {
 	interestRate = rate;
 }
 
-double noServiceChargeChecking::getMinBalance() {
+double& noServiceChargeChecking::getMinBalance() {
 	return minBalance;
 }
 
-void noServiceChargeChecking::setMinBalance(double minimum) {
+void noServiceChargeChecking::setMinBalance(double& minimum) {
 	minBalance = minimum;
 }
 
 //methods
-void noServiceChargeChecking::depositMoney(double money) {
+void noServiceChargeChecking::depositMoney(double& money) {
 	accountBalance += money;
 
 	deposits.push_back(money);
 }//depositMoney method
 
-void noServiceChargeChecking::withdrawMoney(double money) {
+void noServiceChargeChecking::withdrawMoney(double& money) {
 	if (accountBalance <= 0) {
 		cout << "No money to withdraw" << endl;
 		money = 0;
@@ -73,7 +73,7 @@ void noServiceChargeChecking::withdrawMoney(double money) {
 	}
 }//withdrawMoney method
 
-void noServiceChargeChecking::writeCheck(double money) {
+void noServiceChargeChecking::writeCheck(double& money) {
 	accountBalance -= money;
 	checks.push_back(money);
 }//writeCheck method

@@ -12,21 +12,21 @@ public:
 	
 	//constructors and destructor
 	serviceChargeChecking();
-	serviceChargeChecking(int checks, double fee, int number, string name, double balance);
+	serviceChargeChecking(int& checks, double& fee, int& number, string& name, double& balance);
 	~serviceChargeChecking();
 
 	//getters and setters
 	int getMaxChecks();
-	void setMaxChecks(int maximum);
+	void setMaxChecks(int& maximum);
 
 
-	double getMonthlyFee();
-	void setMonthlyFee(double fee);
+	double& getMonthlyFee();
+	void setMonthlyFee(double& fee);
 
 	//methods
-	void depositMoney(double money) override;
-	void withdrawMoney(double money) override;
-	void writeCheck(double money) override;
+	void depositMoney(double& money) override;
+	void withdrawMoney(double& money) override;
+	void writeCheck(double& money) override;
 	void createStatement() override;
 };
 

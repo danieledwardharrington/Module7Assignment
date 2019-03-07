@@ -30,4 +30,4 @@ checkingAccount::~checkingAccount()
 //no getters and setters here
 
 //methods
-void writeCheck(double money) {}
+void writeCheck(double& money) {}

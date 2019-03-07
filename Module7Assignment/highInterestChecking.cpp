@@ -20,7 +20,7 @@ highInterestChecking::highInterestChecking()
 {
 }
 
-highInterestChecking::highInterestChecking(double rate, double minimum, int number, string name, double balance) {
+highInterestChecking::highInterestChecking(double& rate, double& minimum, int& number, string& name, double& balance) {
 	interestRate = rate;
 	minBalance = minimum;
 	accountNumber = number;

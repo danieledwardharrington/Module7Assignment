@@ -22,7 +22,7 @@ savingsAccount::savingsAccount()
 {
 }
 
-savingsAccount::savingsAccount(double rate, int number, string name, double balance) {
+savingsAccount::savingsAccount(double& rate, int& number, string& name, double& balance) {
 
 	interestRate = rate;
 	accountNumber = number;
@@ -36,22 +36,22 @@ savingsAccount::~savingsAccount()
 }
 
 //getters and setters
-double savingsAccount::getInterestRate() {
+double& savingsAccount::getInterestRate() {
 	return interestRate;
 }
 
-void savingsAccount::setInterestRate(double rate) {
+void savingsAccount::setInterestRate(double& rate) {
 	interestRate = rate;
 }
 
 //methods
-void savingsAccount::depositMoney(double money) {
+void savingsAccount::depositMoney(double& money) {
 	accountBalance += money;
 
 	deposits.push_back(money); //adding transaction to vector
 }//depositMoney method
 
-void savingsAccount::withdrawMoney(double money) {
+void savingsAccount::withdrawMoney(double& money) {
 	accountBalance -= money;
 
 	withdrawals.push_back(money);

@@ -22,18 +22,18 @@ protected:
 
 public:
 	//getters and setters
-	void setAccountNumber(int number);
-	int getAccountNumber();
+	void setAccountNumber(int& number);
+	int& getAccountNumber();
 
-	void setHolderName(string name);
-	string getHolderName();
+	void setHolderName(string& name);
+	string& getHolderName();
 
-	void setAccountBalance(double balance);
-	double getAccountBalance();
+	void setAccountBalance(double& balance);
+	double& getAccountBalance();
 
 	//virtual functions
-	virtual void depositMoney(double money) = 0;
-	virtual void withdrawMoney(double money) = 0;
+	virtual void depositMoney(double& money) = 0;
+	virtual void withdrawMoney(double& money) = 0;
 	virtual void createStatement() = 0;
 
 }; //bankAccount class

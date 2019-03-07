@@ -31,7 +31,7 @@ certificateOfDeposit::certificateOfDeposit()
 {
 }
 
-certificateOfDeposit::certificateOfDeposit(int matMonths, double rate, int curMonth, int number, string name, double balance) {
+certificateOfDeposit::certificateOfDeposit(int& matMonths, double& rate, int& curMonth, int& number, string& name, double& balance) {
 	maturityMonths = matMonths;
 	interestRate = rate;
 	currentCDMonth = curMonth;
@@ -46,38 +46,37 @@ certificateOfDeposit::~certificateOfDeposit()
 }
 
 //getters and setters
-int certificateOfDeposit::getMaturityMonths() {
+int& certificateOfDeposit::getMaturityMonths() {
 	return maturityMonths;
 }
 
-void certificateOfDeposit::setMaturityMonths(int months) {
+void certificateOfDeposit::setMaturityMonths(int& months) {
 	maturityMonths = months;
 }
 
-double certificateOfDeposit::getInterestRate() {
+double& certificateOfDeposit::getInterestRate() {
 	return interestRate;
 }
 
-void certificateOfDeposit::setInterestRate(double rate) {
+void certificateOfDeposit::setInterestRate(double& rate) {
 	interestRate = rate;
 }
 
-int certificateOfDeposit::getCurrentCDMonth() {
+int& certificateOfDeposit::getCurrentCDMonth() {
 	return currentCDMonth;
 }
 
-void certificateOfDeposit::setCurrentCDMonth(int month) {
+void certificateOfDeposit::setCurrentCDMonth(int& month) {
 	currentCDMonth = month;
 }
 
-//methods
-void certificateOfDeposit::depositMoney(double money) {
-	accountBalance += money;
 
-	deposits.push_back(money);
+//methods
+void certificateOfDeposit::depositMoney(double& money) {
+	accountBalance += money;
 }//depositMoney method
 
-void certificateOfDeposit::withdrawMoney(double money) {
+void certificateOfDeposit::withdrawMoney(double& money) {
 	
 	double penalty;
 
