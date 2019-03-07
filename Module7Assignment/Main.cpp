@@ -483,7 +483,7 @@ void createServiceChargeChecking() {
 		cout << "Invalid input. Starting over." << endl << endl;
 		selectBaseAccount();
 	}//if
-	serviceChargeChecking.setMaxChecks(checks);
+	serviceAccount.setMaxChecks(checks);
 
 	cout << "Enter the monthly fee:" << endl;
 	cin >> monthlyFee;

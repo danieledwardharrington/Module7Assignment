@@ -1,5 +1,11 @@
 #pragma once
 #include "noServiceChargeChecking.h"
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <vector>
+
+
 class highInterestChecking : public noServiceChargeChecking
 {
 public:

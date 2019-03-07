@@ -1,5 +1,11 @@
 #pragma once
 #include "savingsAccount.h"
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <vector>
+
+
 class highInterestSavings : public savingsAccount
 {
 protected:

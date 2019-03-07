@@ -1,5 +1,11 @@
 #pragma once
 #include "bankAccount.h"
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <vector>
+
+
 class certificateOfDeposit : public bankAccount
 {
 //properties

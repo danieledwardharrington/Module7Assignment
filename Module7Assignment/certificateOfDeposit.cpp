@@ -83,7 +83,7 @@ void certificateOfDeposit::withdrawMoney(double& money) {
 	if (currentCDMonth < maturityMonths) {
 
 		penalty = (interestRate * accountBalance) * (maturityMonths / 2);
-
+		penalties.push_back(penalty);
 	}
 	else {
 		penalty = 0;
@@ -92,7 +92,7 @@ void certificateOfDeposit::withdrawMoney(double& money) {
 	accountBalance -= (money + penalty);
 
 	withdrawals.push_back(money);
-	penalties.push_back(penalty);
+
 
 }//withdrawMoney method
 
