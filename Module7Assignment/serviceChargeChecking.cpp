@@ -77,7 +77,7 @@ void serviceChargeChecking::withdrawMoney(double& money) {
 
 void serviceChargeChecking::writeCheck(double& money) {
 	
-	if (checks.size() < maxChecks) {
+	if (static_cast<int>(checks.size()) < maxChecks) {
 		accountBalance -= money;
 		checks.push_back(money);
 	}

@@ -277,7 +277,7 @@ void createStandardSavings() {
 		else if (answer == 'Y') {
 			cout << "Enter the amount you'd like to withdraw:" << endl;
 			cin >> withdrawal;
-			if (withdrawal < standardSavings.getAccountBalance && withdrawal > 0) {
+			if (withdrawal < standardSavings.getAccountBalance() && withdrawal > 0) {
 				standardSavings.withdrawMoney(withdrawal);
 			}
 			else {
@@ -404,7 +404,7 @@ void createHighInterestSavings() {
 		else if (answer == 'Y') {
 			cout << "Enter the amount you'd like to withdraw:" << endl;
 			cin >> withdrawal;
-			if (withdrawal < highSavings.getAccountBalance && withdrawal > 0) {
+			if (withdrawal < highSavings.getAccountBalance() && withdrawal > 0) {
 				highSavings.withdrawMoney(withdrawal);
 			}
 			else {
@@ -548,7 +548,7 @@ void createServiceChargeChecking() {
 		else if (answer == 'Y') {
 			cout << "Enter the amount you'd like to withdraw:" << endl;
 			cin >> withdrawal;
-			if (withdrawal < serviceAccount.getAccountBalance && withdrawal > 0) {
+			if (withdrawal < serviceAccount.getAccountBalance() && withdrawal > 0) {
 				serviceAccount.withdrawMoney(withdrawal);
 			}
 			else {
@@ -588,7 +588,7 @@ void createServiceChargeChecking() {
 		else if (answer == 'Y') {
 			cout << "Enter the amount for the check:" << endl;
 			cin >> withdrawal;
-			if (withdrawal < serviceAccount.getAccountBalance && withdrawal > 0) {
+			if (withdrawal < serviceAccount.getAccountBalance() && withdrawal > 0) {
 				serviceAccount.writeCheck(withdrawal);
 			}
 			else {
@@ -717,7 +717,7 @@ void createNoServiceChargeChecking() {
 		else if (answer == 'Y') {
 			cout << "Enter the amount you'd like to withdraw:" << endl;
 			cin >> withdrawal;
-			if (withdrawal < noServiceAccount.getAccountBalance && withdrawal > 0) {
+			if (withdrawal < noServiceAccount.getAccountBalance() && withdrawal > 0) {
 				noServiceAccount.withdrawMoney(withdrawal);
 			}
 			else {
@@ -757,7 +757,7 @@ void createNoServiceChargeChecking() {
 		else if (answer == 'Y') {
 			cout << "Enter the amount for the check:" << endl;
 			cin >> withdrawal;
-			if (withdrawal < noServiceAccount.getAccountBalance && withdrawal > 0) {
+			if (withdrawal < noServiceAccount.getAccountBalance() && withdrawal > 0) {
 				noServiceAccount.writeCheck(withdrawal);
 			}
 			else {
@@ -885,7 +885,7 @@ void createHighInterestChecking() {
 		else if (answer == 'Y') {
 			cout << "Enter the amount you'd like to withdraw:" << endl;
 			cin >> withdrawal;
-			if (withdrawal < noServiceAccount.getAccountBalance && withdrawal > 0) {
+			if (withdrawal < noServiceAccount.getAccountBalance() && withdrawal > 0) {
 				noServiceAccount.withdrawMoney(withdrawal);
 			}
 			else {
@@ -925,7 +925,7 @@ void createHighInterestChecking() {
 		else if (answer == 'Y') {
 			cout << "Enter the amount for the check:" << endl;
 			cin >> withdrawal;
-			if (withdrawal < noServiceAccount.getAccountBalance && withdrawal > 0) {
+			if (withdrawal < noServiceAccount.getAccountBalance() && withdrawal > 0) {
 				noServiceAccount.writeCheck(withdrawal);
 			}
 			else {
@@ -1069,7 +1069,7 @@ void createCoD() {
 			cout << "Enter the amount you'd like to withdraw:" << endl;
 			cin >> withdrawal;
 			fee = (codAccount.getAccountBalance() * COD_RATE) * (matMonths / 2);
-			if (withdrawal + fee <= codAccount.getAccountBalance && withdrawal > 0) {
+			if (withdrawal + fee <= codAccount.getAccountBalance() && withdrawal > 0) {
 				codAccount.withdrawMoney(withdrawal);
 			}
 			else {
