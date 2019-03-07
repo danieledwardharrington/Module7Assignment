@@ -201,10 +201,11 @@ void createStandardSavings() {
 	int accountNumber;
 	string holderName;
 	double startingBalance;
+	double rate = STANDARD_RATE;
 
 	savingsAccount standardSavings; //creating object
 
-	standardSavings.setInterestRate(STANDARD_RATE); //can automatically set this rate
+	standardSavings.setInterestRate(rate); //can automatically set this rate
 	accountNumber = rand() % 100 + 1; //automatically setting random account number
 	standardSavings.setAccountNumber(accountNumber);
 
@@ -324,12 +325,14 @@ void createHighInterestSavings() {
 	int accountNumber;
 	string holderName;
 	double startingBalance;
+	double rate = HIGH_RATE;
+	double minBalance = STANDARD_MIN_BALANCE;
 
 	highInterestSavings highSavings; //creating object
 
 	//automatically setting some values
-	highSavings.setInterestRate(HIGH_RATE);
-	highSavings.setMinBalance(STANDARD_MIN_BALANCE);
+	highSavings.setInterestRate(rate);
+	highSavings.setMinBalance(minBalance);
 	accountNumber = rand() % 100 + 1; //automatically setting random account number
 	highSavings.setAccountNumber(accountNumber);
 
@@ -441,7 +444,7 @@ void createServiceChargeChecking() {
 	cout << "Standard Service Charge Checking" << endl << endl; //header
 
 	//account variables
-	int maxChecks;
+	int checks;
 	double monthlyFee;
 	int accountNumber;
 	string holderName;
@@ -474,13 +477,13 @@ void createServiceChargeChecking() {
 	serviceAccount.setAccountBalance(startingBalance);
 
 	cout << "Enter the maximum number of checks:" << endl;
-	cin >> maxChecks;
+	cin >> checks;
 	//in case max checks is less than 1
-	if (maxChecks < 1) {
+	if (checks < 1) {
 		cout << "Invalid input. Starting over." << endl << endl;
 		selectBaseAccount();
 	}//if
-	serviceChargeChecking.setMaxChecks(maxChecks);
+	serviceChargeChecking.setMaxChecks(checks);
 
 	cout << "Enter the monthly fee:" << endl;
 	cin >> monthlyFee;
@@ -634,14 +637,16 @@ void createNoServiceChargeChecking() {
 	char answer;
 	double deposit;
 	double withdrawal;
+	double rate = STANDARD_RATE;
+	double minBalance = STANDARD_MIN_BALANCE;
 
 	noServiceChargeChecking noServiceAccount; //creating object
 
 	//setting some values automatically
 	accountNumber = rand() % 100 + 1;
 	noServiceAccount.setAccountNumber(accountNumber);
-	noServiceAccount.setInterestRate(STANDARD_RATE);
-	noServiceAccount.setMinBalance(STANDARD_MIN_BALANCE);
+	noServiceAccount.setInterestRate(rate);
+	noServiceAccount.setMinBalance(minBalance);
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
@@ -800,14 +805,16 @@ void createHighInterestChecking() {
 	char answer;
 	double deposit;
 	double withdrawal;
+	double rate = HIGH_RATE;
+	double minBalance = HIGH_MIN_BALANCE;
 
 	noServiceChargeChecking noServiceAccount; //creating object
 
 	//setting some values automatically
 	accountNumber = rand() % 100 + 1;
 	noServiceAccount.setAccountNumber(accountNumber);
-	noServiceAccount.setInterestRate(HIGH_RATE);
-	noServiceAccount.setMinBalance(HIGH_MIN_BALANCE);
+	noServiceAccount.setInterestRate(rate);
+	noServiceAccount.setMinBalance(minBalance);
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
@@ -969,11 +976,12 @@ void createCoD() {
 	int accountNumber;
 	string holderName;
 	double startingBalance;
+	double rate = COD_RATE;
 
 	certificateOfDeposit codAccount; //creating object
 
 	//setting some values automatically
-	codAccount.setInterestRate(COD_RATE);
+	codAccount.setInterestRate(rate);
 	accountNumber = rand() % 100 + 1; //automatically setting random account number
 	codAccount.setAccountNumber(accountNumber);
 

@@ -16,9 +16,8 @@ public:
 	~serviceChargeChecking();
 
 	//getters and setters
-	int getMaxChecks();
+	int& getMaxChecks();
 	void setMaxChecks(int& maximum);
-
 
 	double& getMonthlyFee();
 	void setMonthlyFee(double& fee);
