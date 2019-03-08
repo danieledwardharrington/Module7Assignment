@@ -279,28 +279,18 @@ void createStandardSavings() {
 	if (answer == 'Y') {
 		do {
 			loopResponse = 'N'; //resetting
-			answer = ' ';
 			withdrawal = 0;
 
 
-			if (answer == 'N') {
-				break;
-			}
-			else if (answer == 'Y') {
-				cout << "Enter the amount you'd like to withdraw:" << endl;
-				cin >> withdrawal;
-				if (withdrawal < standardSavings.getAccountBalance() && withdrawal > 0) {
-					standardSavings.withdrawMoney(withdrawal);
-				}
-				else {
-					cout << "Invalid input. Starting over." << endl << endl;
-					selectBaseAccount();
-				}//nested if
+			cout << "Enter the amount you'd like to withdraw:" << endl;
+			cin >> withdrawal;
+			if (withdrawal < standardSavings.getAccountBalance() && withdrawal > 0) {
+				standardSavings.withdrawMoney(withdrawal);
 			}
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
-			}//if
+			}//if/else
 
 			cout << "Would you like to make another withdrawal? (Y/N)" << endl;
 			cin >> loopResponse;
@@ -423,24 +413,15 @@ void createHighInterestSavings() {
 			withdrawal = 0;
 
 
-			if (answer == 'N') {
-				break;
-			}
-			else if (answer == 'Y') {
-				cout << "Enter the amount you'd like to withdraw:" << endl;
-				cin >> withdrawal;
-				if (withdrawal < highSavings.getAccountBalance() && withdrawal > 0) {
-					highSavings.withdrawMoney(withdrawal);
-				}
-				else {
-					cout << "Invalid input. Starting over." << endl << endl;
-					selectBaseAccount();
-				}//nested if
+			cout << "Enter the amount you'd like to withdraw:" << endl;
+			cin >> withdrawal;
+			if (withdrawal < highSavings.getAccountBalance() && withdrawal > 0) {
+				highSavings.withdrawMoney(withdrawal);
 			}
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
-			}//if
+			}//nested if
 
 			cout << "Would you like to make another withdrawal? (Y/N)" << endl;
 			cin >> loopResponse;
