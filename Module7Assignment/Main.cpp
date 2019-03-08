@@ -211,6 +211,7 @@ void createStandardSavings() {
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
+	cin.ignore();
 	getline(cin, holderName);
 	standardSavings.setHolderName(holderName);
 
@@ -223,19 +224,22 @@ void createStandardSavings() {
 	}//if
 	standardSavings.setAccountBalance(startingBalance);
 
-	//loops for testing withdrawals and deposits
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		deposit = 0;
+	//asking user if they want to make a deposit
+	cout << "Would you like to make a deposit? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
 
-		cout << "Would you like to make a deposit? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y'){
+	if (answer != 'N' && answer != 'Y') {
+		cout << "Invalid input. Starting over." << endl << endl;
+		selectBaseAccount();
+	}//if
+
+	if (answer == 'Y') {
+		//loops for deposits
+		do {
+			loopResponse = 'N'; //resetting
+			deposit = 0;
+
 			cout << "Enter the amount you'd like to deposit:" << endl;
 			cin >> deposit;
 			if (deposit > 0) {
@@ -245,61 +249,71 @@ void createStandardSavings() {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
 			}//nested if
-		}
-		else {
+
+
+			cout << "Would you like to make another deposit? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N' && loopResponse != 'Y') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to make another deposit? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
+	}//if
 
-	}while(loopResponse == 'Y');
 
-	//for invalid input
-	if (loopResponse != 'N') {
+	//asking user if they want to make a withdrawal
+	cout << "Would you like to make a withdrawal? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
+
+	if (answer != 'N' && answer != 'Y') {
 		cout << "Invalid input. Starting over." << endl << endl;
 		selectBaseAccount();
 	}//if
 
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		withdrawal = 0;
+	if (answer == 'Y') {
+		do {
+			loopResponse = 'N'; //resetting
+			answer = ' ';
+			withdrawal = 0;
 
-		cout << "Would you like to make a withdrawal? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
-			cout << "Enter the amount you'd like to withdraw:" << endl;
-			cin >> withdrawal;
-			if (withdrawal < standardSavings.getAccountBalance() && withdrawal > 0) {
-				standardSavings.withdrawMoney(withdrawal);
+
+			if (answer == 'N') {
+				break;
+			}
+			else if (answer == 'Y') {
+				cout << "Enter the amount you'd like to withdraw:" << endl;
+				cin >> withdrawal;
+				if (withdrawal < standardSavings.getAccountBalance() && withdrawal > 0) {
+					standardSavings.withdrawMoney(withdrawal);
+				}
+				else {
+					cout << "Invalid input. Starting over." << endl << endl;
+					selectBaseAccount();
+				}//nested if
 			}
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
-			}//nested if
-		}
-		else {
+			}//if
+
+			cout << "Would you like to make another withdrawal? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to make another withdrawal? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
-
-	} while (loopResponse == 'Y');
-
-	//for invalid input
-	if (loopResponse != 'N') {
-		cout << "Invalid input. Starting over." << endl << endl;
-		selectBaseAccount();
 	}//if
 
 	cout << endl; //spacing
@@ -338,6 +352,7 @@ void createHighInterestSavings() {
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
+	cin.ignore();
 	getline(cin, holderName);
 	highSavings.setHolderName(holderName);
 
@@ -350,19 +365,22 @@ void createHighInterestSavings() {
 	}//if
 	highSavings.setAccountBalance(startingBalance);
 
-	//loops for testing withdrawals and deposits
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		deposit = 0;
+	//asking user if they want to make a deposit
+	cout << "Would you like to make a deposit? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
 
-		cout << "Would you like to make a deposit? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
+	if (answer != 'N' && answer != 'Y') {
+		cout << "Invalid input. Starting over." << endl << endl;
+		selectBaseAccount();
+	}//if
+
+	if (answer == 'Y') {
+		//loop for deposits
+		do {
+			loopResponse = 'N'; //resetting
+			deposit = 0;
+	
 			cout << "Enter the amount you'd like to deposit:" << endl;
 			cin >> deposit;
 			if (deposit > 0) {
@@ -371,63 +389,73 @@ void createHighInterestSavings() {
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
-			}//nested if
-		}
-		else {
+			}//if/else
+			
+
+			cout << "Would you like to make another deposit? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N' && loopResponse != 'Y') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to make another deposit? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
+	}//if
 
-	} while (loopResponse == 'Y');
+	//asking user if they want to make a withdrawal
+	cout << "Would you like to make a withdrawal? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
 
-	//for invalid input
-	if (loopResponse != 'N') {
+	if (answer != 'N' && answer != 'Y') {
 		cout << "Invalid input. Starting over." << endl << endl;
 		selectBaseAccount();
 	}//if
 
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		withdrawal = 0;
+	if (answer == 'Y') {
+		//loop for withdrawals
+		do {
+			loopResponse = 'N'; //resetting
+			withdrawal = 0;
 
-		cout << "Would you like to make a withdrawal? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
-			cout << "Enter the amount you'd like to withdraw:" << endl;
-			cin >> withdrawal;
-			if (withdrawal < highSavings.getAccountBalance() && withdrawal > 0) {
-				highSavings.withdrawMoney(withdrawal);
+
+			if (answer == 'N') {
+				break;
+			}
+			else if (answer == 'Y') {
+				cout << "Enter the amount you'd like to withdraw:" << endl;
+				cin >> withdrawal;
+				if (withdrawal < highSavings.getAccountBalance() && withdrawal > 0) {
+					highSavings.withdrawMoney(withdrawal);
+				}
+				else {
+					cout << "Invalid input. Starting over." << endl << endl;
+					selectBaseAccount();
+				}//nested if
 			}
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
-			}//nested if
-		}
-		else {
+			}//if
+
+			cout << "Would you like to make another withdrawal? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to make another withdrawal? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
-
-	} while (loopResponse == 'Y');
-
-	//for invalid input
-	if (loopResponse != 'N') {
-		cout << "Invalid input. Starting over." << endl << endl;
-		selectBaseAccount();
 	}//if
+
 
 	cout << endl; //spacing
 	cout << "Showing statement:" << endl << endl; //telling the user the statement is being shown
@@ -464,6 +492,7 @@ void createServiceChargeChecking() {
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
+	cin.ignore();
 	getline(cin, holderName);
 	serviceAccount.setHolderName(holderName);
 
@@ -494,19 +523,22 @@ void createServiceChargeChecking() {
 	}//if
 	serviceAccount.setMonthlyFee(monthlyFee);
 
-	//loops for testing withdrawals, checks, and deposits
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		deposit = 0;
+	//asking user if they want to make a deposit
+	cout << "Would you like to make a deposit? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
 
-		cout << "Would you like to make a deposit? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
+	if (answer != 'Y' && answer != 'N') {
+		cout << "Invalid input. Starting over." << endl << endl;
+		selectBaseAccount();
+	}//if
+
+	if (answer == 'Y') {
+		//loop for deposits
+		do {
+			loopResponse = 'N'; //resetting
+			deposit = 0;
+
 			cout << "Enter the amount you'd like to deposit:" << endl;
 			cin >> deposit;
 			if (deposit > 0) {
@@ -515,37 +547,37 @@ void createServiceChargeChecking() {
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
-			}//nested if
-		}
-		else {
+			}//if/else
+
+			cout << "Would you like to make another deposit? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to make another deposit? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
+	}//if
 
-	} while (loopResponse == 'Y');
+	//asking user if they want to make a withdrawal
+	cout << "Would you like to make a withdrawal? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
 
-	//for invalid input
-	if (loopResponse != 'N') {
+	if (answer != 'Y' && answer != 'N') {
 		cout << "Invalid input. Starting over." << endl << endl;
 		selectBaseAccount();
 	}//if
 
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		withdrawal = 0;
+	if (answer == 'Y') {
+		do {
+			loopResponse = 'N'; //resetting
+			withdrawal = 0;
 
-		cout << "Would you like to make a withdrawal? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
 			cout << "Enter the amount you'd like to withdraw:" << endl;
 			cin >> withdrawal;
 			if (withdrawal < serviceAccount.getAccountBalance() && withdrawal > 0) {
@@ -555,37 +587,40 @@ void createServiceChargeChecking() {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
 			}//nested if
-		}
-		else {
+
+			cout << "Would you like to make another withdrawal? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to make another withdrawal? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
+	}//if
 
-	} while (loopResponse == 'Y');
 
-	//for invalid input
-	if (loopResponse != 'N') {
+	//for the sake of brevity, I'm not making the user fill in who the check is for and the date and all of that
+
+	//asking user if they want to write a check
+	cout << "Would you like to write a check? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
+
+	if (answer != 'Y' && answer != 'N') {
 		cout << "Invalid input. Starting over." << endl << endl;
 		selectBaseAccount();
 	}//if
 
-	//for the sake of brevity, I'm not making the user fill in who the check is for and the date and all of that
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		withdrawal = 0; //just gonna re-use this variable since it fills basically the same function for checks
+	if (answer == 'Y') {
+		//loop for checks
+		do {
+			loopResponse = 'N'; //resetting
+			withdrawal = 0; //just gonna re-use this variable since it fills basically the same function for checks
 
-		cout << "Would you like to write a check? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
 			cout << "Enter the amount for the check:" << endl;
 			cin >> withdrawal;
 			if (withdrawal < serviceAccount.getAccountBalance() && withdrawal > 0) {
@@ -595,22 +630,19 @@ void createServiceChargeChecking() {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
 			}//nested if
-		}
-		else {
+
+			cout << "Would you like to write another check? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to write another check? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
-
-	} while (loopResponse == 'Y');
-
-	//for invalid input
-	if (loopResponse != 'N') {
-		cout << "Invalid input. Starting over." << endl << endl;
-		selectBaseAccount();
 	}//if
 
 	cout << endl; //spacing
@@ -650,6 +682,7 @@ void createNoServiceChargeChecking() {
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
+	cin.ignore();
 	getline(cin, holderName);
 	noServiceAccount.setHolderName(holderName);
 
@@ -662,20 +695,22 @@ void createNoServiceChargeChecking() {
 	}//if
 	noServiceAccount.setAccountBalance(startingBalance);
 
+	//asking user if they want to make a deposit
+	cout << "Would you like to make a deposit? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
 
-	//loops for testing withdrawals, checks, and deposits
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		deposit = 0;
+	if (answer != 'Y' && answer != 'N') {
+		cout << "Invalid input. Starting over." << endl << endl;
+		selectBaseAccount();
+	}//if
 
-		cout << "Would you like to make a deposit? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
+	if (answer == 'Y') {
+		//loop for deposits
+		do {
+			loopResponse = 'N'; //resetting
+			deposit = 0;
+
 			cout << "Enter the amount you'd like to deposit:" << endl;
 			cin >> deposit;
 			if (deposit > 0) {
@@ -685,36 +720,39 @@ void createNoServiceChargeChecking() {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
 			}//nested if
-		}
-		else {
+
+			cout << "Would you like to make another deposit? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to make another deposit? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
+	}//if
 
-	} while (loopResponse == 'Y');
+	//asking user if they want to make a withdrawal
+	cout << "Would you like to make a withdrawal? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
 
-	//for invalid input
-	if (loopResponse != 'N') {
+	if (answer != 'Y' && answer != 'N') {
 		cout << "Invalid input. Starting over." << endl << endl;
 		selectBaseAccount();
 	}//if
 
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		withdrawal = 0;
 
-		cout << "Would you like to make a withdrawal? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
+	if (answer == 'Y') {
+		//loop for withdrawals
+		do {
+			loopResponse = 'N'; //resetting
+			withdrawal = 0;
+
+
 			cout << "Enter the amount you'd like to withdraw:" << endl;
 			cin >> withdrawal;
 			if (withdrawal < noServiceAccount.getAccountBalance() && withdrawal > 0) {
@@ -723,38 +761,42 @@ void createNoServiceChargeChecking() {
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
-			}//nested if
-		}
-		else {
+			}//if/else
+
+			cout << "Would you like to make another withdrawal? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to make another withdrawal? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
+	}//if
 
-	} while (loopResponse == 'Y');
 
-	//for invalid input
-	if (loopResponse != 'N') {
+	//for the sake of brevity, I'm not making the user fill in who the check is for and the date and all of that
+
+	//asking user if they want to write a check
+	cout << "Would you like to write a check? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
+
+	if (answer != 'Y' && answer != 'N') {
 		cout << "Invalid input. Starting over." << endl << endl;
 		selectBaseAccount();
 	}//if
 
-	//for the sake of brevity, I'm not making the user fill in who the check is for and the date and all of that
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		withdrawal = 0; //just gonna re-use this variable since it fills basically the same function for checks
+	if (answer == 'Y') {
 
-		cout << "Would you like to write a check? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
+		//loop for checks
+		do {
+			loopResponse = 'N'; //resetting
+			withdrawal = 0; //just gonna re-use this variable since it fills basically the same function for checks
+
 			cout << "Enter the amount for the check:" << endl;
 			cin >> withdrawal;
 			if (withdrawal < noServiceAccount.getAccountBalance() && withdrawal > 0) {
@@ -763,23 +805,20 @@ void createNoServiceChargeChecking() {
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
-			}//nested if
-		}
-		else {
+			}//if/else
+
+			cout << "Would you like to write another check? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to write another check? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
-
-	} while (loopResponse == 'Y');
-
-	//for invalid input
-	if (loopResponse != 'N') {
-		cout << "Invalid input. Starting over." << endl << endl;
-		selectBaseAccount();
 	}//if
 
 	cout << endl; //spacing
@@ -818,6 +857,7 @@ void createHighInterestChecking() {
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
+	cin.ignore();
 	getline(cin, holderName);
 	noServiceAccount.setHolderName(holderName);
 
@@ -830,20 +870,22 @@ void createHighInterestChecking() {
 	}//if
 	noServiceAccount.setAccountBalance(startingBalance);
 
+	//asking user if they want to make a deposit
+	cout << "Would you like to make a deposit? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
 
-	//loops for testing withdrawals, checks, and deposits
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		deposit = 0;
+	if (answer != 'Y' && answer != 'N') {
+		cout << "Invalid input. Starting over." << endl << endl;
+		selectBaseAccount();
+	}//if
 
-		cout << "Would you like to make a deposit? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
+	if (answer == 'Y') {
+		//loop for deposits
+		do {
+			loopResponse = 'N'; //resetting
+			deposit = 0;
+
 			cout << "Enter the amount you'd like to deposit:" << endl;
 			cin >> deposit;
 			if (deposit > 0) {
@@ -852,37 +894,40 @@ void createHighInterestChecking() {
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
-			}//nested if
-		}
-		else {
+			}//if/else
+
+			cout << "Would you like to make another deposit? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
+	}//if
 
-		cout << "Would you like to make another deposit? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
+	//asking user if they want to make a withdrawal
+	cout << "Would you like to make a withdrawal? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
 
-	} while (loopResponse == 'Y');
-
-	//for invalid input
-	if (loopResponse != 'N') {
+	if (answer != 'Y' && answer != 'N') {
 		cout << "Invalid input. Starting over." << endl << endl;
 		selectBaseAccount();
 	}//if
 
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		withdrawal = 0;
 
-		cout << "Would you like to make a withdrawal? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
+	if (answer == 'Y') {
+
+		//loop for withdrawals
+		do {
+			loopResponse = 'N'; //resetting
+			withdrawal = 0;
+
+
 			cout << "Enter the amount you'd like to withdraw:" << endl;
 			cin >> withdrawal;
 			if (withdrawal < noServiceAccount.getAccountBalance() && withdrawal > 0) {
@@ -891,38 +936,42 @@ void createHighInterestChecking() {
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
-			}//nested if
-		}
-		else {
+			}//if/else
+
+			cout << "Would you like to make another withdrawal? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to make another withdrawal? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
+	}//if
 
-	} while (loopResponse == 'Y');
+	//for the sake of brevity, I'm not making the user fill in who the check is for and the date and all of that
 
-	//for invalid input
-	if (loopResponse != 'N') {
+	//asking user if they want to write a check
+	cout << "Would you like to write a check? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
+
+	if (answer != 'Y' && answer != 'N') {
 		cout << "Invalid input. Starting over." << endl << endl;
 		selectBaseAccount();
 	}//if
 
-	//for the sake of brevity, I'm not making the user fill in who the check is for and the date and all of that
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		withdrawal = 0; //just gonna re-use this variable since it fills basically the same function for checks
 
-		cout << "Would you like to write a check? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
+	if (answer == 'Y') {
+		//loop for checks
+		do {
+			loopResponse = 'N'; //resetting
+			withdrawal = 0; //just gonna re-use this variable since it fills basically the same function for checks
+
+
 			cout << "Enter the amount for the check:" << endl;
 			cin >> withdrawal;
 			if (withdrawal < noServiceAccount.getAccountBalance() && withdrawal > 0) {
@@ -931,23 +980,20 @@ void createHighInterestChecking() {
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
-			}//nested if
-		}
-		else {
+			}//if/else
+
+			cout << "Would you like to write another check? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N' && loopResponse != 'Y') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to write another check? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
-
-	} while (loopResponse == 'Y');
-
-	//for invalid input
-	if (loopResponse != 'N') {
-		cout << "Invalid input. Starting over." << endl << endl;
-		selectBaseAccount();
 	}//if
 
 	cout << endl; //spacing
@@ -987,6 +1033,7 @@ void createCoD() {
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
+	cin.ignore();
 	getline(cin, holderName);
 	codAccount.setHolderName(holderName);
 
@@ -1012,19 +1059,21 @@ void createCoD() {
 	cin >> currentMonth;
 	codAccount.setCurrentCDMonth(currentMonth);
 
-	//loops for testing withdrawals and deposits
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		deposit = 0;
+	cout << "Would you like to make a deposit? (Y/N)" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
 
-		cout << "Would you like to make a deposit? (Y/N)" << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
+	if (answer != 'Y' && answer != 'N') {
+		cout << "Invalid input. Starting over." << endl << endl;
+		selectBaseAccount();
+	}//if
+
+	if (answer == 'Y') {
+		//loop for deposits
+		do {
+			loopResponse = 'N'; //resetting
+			deposit = 0;
+
 			cout << "Enter the amount you'd like to deposit:" << endl;
 			cin >> deposit;
 			if (deposit > 0) {
@@ -1033,39 +1082,43 @@ void createCoD() {
 			else {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
-			}//nested if
-		}
-		else {
+			}//if/else
+
+			cout << "Would you like to make another deposit? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to make another deposit? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
+	}//if
 
-	} while (loopResponse == 'Y');
+	//asking user if they want to make a withdrawal
+	cout << "Would you like to make a withdrawal? (Y/N)" << endl;
+	cout << "NOTE: Withdrawing before account maturity incurs an additional fee." << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
 
-	//for invalid input
-	if (loopResponse != 'N') {
+	if (answer != 'Y' && answer != 'N') {
 		cout << "Invalid input. Starting over." << endl << endl;
 		selectBaseAccount();
 	}//if
 
-	do {
-		loopResponse = 'N'; //resetting
-		answer = ' ';
-		withdrawal = 0;
-		fee = 0;
 
-		cout << "Would you like to make a withdrawal? (Y/N)" << endl;
-		cout << "NOTE: Withdrawing before account maturity incurs an additional fee." << endl;
-		cin >> answer;
-		answer = toupper(answer); //making it capital
-		if (answer == 'N') {
-			break;
-		}
-		else if (answer == 'Y') {
+	if (answer == 'Y') {
+		//loop for withdrawals
+		do {
+			loopResponse = 'N'; //resetting
+			withdrawal = 0;
+			fee = 0;
+
+
+
 			cout << "Enter the amount you'd like to withdraw:" << endl;
 			cin >> withdrawal;
 			fee = (codAccount.getAccountBalance() * COD_RATE) * (matMonths / 2);
@@ -1076,22 +1129,19 @@ void createCoD() {
 				cout << "Invalid input. Starting over." << endl << endl;
 				selectBaseAccount();
 			}//nested if
-		}
-		else {
+			
+			cout << "Would you like to make another withdrawal? (Y/N)" << endl;
+			cin >> loopResponse;
+			loopResponse = toupper(loopResponse); //making it capital
+
+		} while (loopResponse == 'Y');
+
+		//for invalid input
+		if (loopResponse != 'N') {
 			cout << "Invalid input. Starting over." << endl << endl;
 			selectBaseAccount();
 		}//if
 
-		cout << "Would you like to make another withdrawal? (Y/N)" << endl;
-		cin >> loopResponse;
-		loopResponse = toupper(loopResponse); //making it capital
-
-	} while (loopResponse == 'Y');
-
-	//for invalid input
-	if (loopResponse != 'N') {
-		cout << "Invalid input. Starting over." << endl << endl;
-		selectBaseAccount();
 	}//if
 
 	cout << endl; //spacing
