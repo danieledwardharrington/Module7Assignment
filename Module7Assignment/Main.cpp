@@ -138,7 +138,7 @@ void selectSavings(int& accountType) {
 		createStandardSavings();
 		break;
 	case 2:
-
+		createHighInterestSavings();
 		break;
 	default:
 		cout << "Invalid input. Starting over." << endl << endl;
