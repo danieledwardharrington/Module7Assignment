@@ -312,6 +312,22 @@ void createStandardSavings() {
 	standardSavings.createStatement();
 
 	cout << endl; //spacing
+
+	//asking if the user wants to start again
+	cout << "Would you like to start again?" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
+	if (answer == 'Y') {
+		cout << "Starting again" << endl << endl;
+		selectBaseAccount();
+	}
+	else if (answer == 'N') {
+		exit(1);
+	}
+	else {
+		cout << "Invalid input. Starting again anyway." << endl << endl;
+		selectBaseAccount();
+	}//if/else
 }//standardSavings method
 
 //method for creating the high interest savings account
@@ -444,6 +460,22 @@ void createHighInterestSavings() {
 	highSavings.createStatement();
 
 	cout << endl; //spacing
+
+	//asking if the user wants to start again
+	cout << "Would you like to start again?" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
+	if (answer == 'Y') {
+		cout << "Starting again" << endl << endl;
+		selectBaseAccount();
+	}
+	else if (answer == 'N') {
+		exit(1);
+	}
+	else {
+		cout << "Invalid input. Starting again anyway." << endl << endl;
+		selectBaseAccount();
+	}//if/else
 
 }//createHighInterestSavings method
 
@@ -634,6 +666,22 @@ void createServiceChargeChecking() {
 
 	cout << endl; //spacing
 
+	//asking if the user wants to start again
+	cout << "Would you like to start again?" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
+	if (answer == 'Y') {
+		cout << "Starting again" << endl << endl;
+		selectBaseAccount();
+	}
+	else if (answer == 'N') {
+		exit(1);
+	}
+	else {
+		cout << "Invalid input. Starting again anyway." << endl << endl;
+		selectBaseAccount();
+	}//if/else
+
 }//createServiceChargeChecking method
 
 //method for creating the standard checking account without a service charge
@@ -809,6 +857,23 @@ void createNoServiceChargeChecking() {
 	noServiceAccount.createStatement();
 
 	cout << endl; //spacing
+
+	//asking if the user wants to start again
+	cout << "Would you like to start again?" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
+	if (answer == 'Y') {
+		cout << "Starting again" << endl << endl;
+		selectBaseAccount();
+	}
+	else if (answer == 'N') {
+		exit(1);
+	}
+	else {
+		cout << "Invalid input. Starting again anyway." << endl << endl;
+		selectBaseAccount();
+	}//if/else
+
 }//createNoServiceChargeChecking method
 
 //method for creating the high interest checking account without a service charge
@@ -984,6 +1049,23 @@ void createHighInterestChecking() {
 	noServiceAccount.createStatement();
 
 	cout << endl; //spacing
+
+	//asking if the user wants to start again
+	cout << "Would you like to start again?" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
+	if (answer == 'Y') {
+		cout << "Starting again" << endl << endl;
+		selectBaseAccount();
+	}
+	else if (answer == 'N') {
+		exit(1);
+	}
+	else {
+		cout << "Invalid input. Starting again anyway." << endl << endl;
+		selectBaseAccount();
+	}//if/else
+
 }//createHighInterestChecking method
 
 //method for handling certificate of deposit
@@ -1131,5 +1213,21 @@ void createCoD() {
 	codAccount.createStatement();
 
 	cout << endl; //spacing
+
+	//asking if the user wants to start again
+	cout << "Would you like to start again?" << endl;
+	cin >> answer;
+	answer = toupper(answer); //making it capital
+	if (answer == 'Y') {
+		cout << "Starting again" << endl << endl;
+		selectBaseAccount();
+	}
+	else if (answer == 'N') {
+		exit(1);
+	}
+	else {
+		cout << "Invalid input. Starting again anyway." << endl << endl;
+		selectBaseAccount();
+	}//if/else
 
 }//createCoD method
