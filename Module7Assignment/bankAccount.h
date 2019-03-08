@@ -15,6 +15,10 @@ protected:
 	int accountNumber;
 	string holderName;
 	double accountBalance;
+	vector<double> deposits;
+	vector<double> withdrawals;
+	double interestRate;
+	double minBalance;
 	
 //methods
 protected:

@@ -18,12 +18,9 @@ using namespace std;
 
 //properties
 int maturityMonths;
-double interestRate;
 int currentCDMonth;
 
-//vectors to track deposits, withdrawals, and penalties for the statement
-vector<double> withdrawals;
-vector<double> deposits;
+//vector to track penalties
 vector<double> penalties;
 
 //constructor and destructor
@@ -38,6 +35,7 @@ certificateOfDeposit::certificateOfDeposit(int& matMonths, double& rate, int& cu
 	accountNumber = number;
 	holderName = name;
 	accountBalance = balance;
+	minBalance = 0;
 }
 
 

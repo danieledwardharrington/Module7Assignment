@@ -8,7 +8,8 @@ using namespace std;
 int accountNumber;
 string holderName;
 double accountBalance;
-
+vector<double> deposits;
+vector<double> withdrawals;
 
 //constructors
 bankAccount::bankAccount()

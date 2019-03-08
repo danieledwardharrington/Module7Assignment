@@ -14,8 +14,6 @@ using namespace std;
 
 //vector to track checks written
 vector<double> checks;
-vector<double> deposits;
-vector<double> withdrawals;
 
 //constructors and destructor
 checkingAccount::checkingAccount()

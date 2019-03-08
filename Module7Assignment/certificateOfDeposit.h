@@ -11,11 +11,8 @@ class certificateOfDeposit : public bankAccount
 //properties
 protected:
 	int maturityMonths;
-	double interestRate;
 	int currentCDMonth;
 
-	vector<double> withdrawals;
-	vector<double> deposits;
 	vector<double> penalties;
 
 //methods

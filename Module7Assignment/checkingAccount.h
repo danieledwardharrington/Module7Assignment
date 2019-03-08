@@ -11,8 +11,6 @@ class checkingAccount : public bankAccount
 
 protected:
 	vector<double> checks;
-	vector<double> deposits;
-	vector<double> withdrawals;
 
 protected:
 

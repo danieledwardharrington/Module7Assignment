@@ -33,6 +33,8 @@ serviceChargeChecking::serviceChargeChecking(int& checks, double& fee, int& numb
 	accountNumber = number;
 	holderName = name;
 	accountBalance = balance;
+	minBalance = 0;
+	interestRate = 0;
 
 }
 

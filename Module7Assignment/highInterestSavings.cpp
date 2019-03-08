@@ -10,8 +10,6 @@ High interest savings account class
 
 using namespace std;
 
-//properties
-double minBalance;
 
 //constructors and destructor
 highInterestSavings::highInterestSavings()

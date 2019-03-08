@@ -10,12 +10,6 @@ Basic savings account class
 
 using namespace std;
 
-//interest rate variable
-double interestRate;
-
-//vectors for transactions
-vector<double> deposits;
-vector<double> withdrawals;
 
 //constructors and destructor
 savingsAccount::savingsAccount()
@@ -28,6 +22,7 @@ savingsAccount::savingsAccount(double& rate, int& number, string& name, double& 
 	accountNumber = number;
 	holderName = name;
 	accountBalance = balance;
+	minBalance = 0;
 }
 
 

@@ -8,9 +8,6 @@
 
 class highInterestSavings : public savingsAccount
 {
-protected:
-	//properties
-	double minBalance;
 
 public:
 

@@ -17,9 +17,6 @@ of checks.
 
 using namespace std;
 
-//properties
-double interestRate;
-double minBalance;
 
 //constructors and destructor
 noServiceChargeChecking::noServiceChargeChecking()
