@@ -90,10 +90,10 @@ void noServiceChargeChecking::createStatement() {
 	cout << setprecision(2);
 
 	//account details
-	cout << setw(25) << "Account Balance:" << setw(12) << accountBalance << endl;
-	cout << setw(25) << "Minimum Balance:" << setw(12) << minBalance << endl;
-	cout << setw(25) << "Interest Rate:" << setw(12) << interestRate << endl;
-	cout << setw(25) << "Checks Written:" << setw(12) << checks.size() << endl;
+	cout << left << setw(25) << "Account Balance:" << setw(12) << accountBalance << endl;
+	cout << left << setw(25) << "Minimum Balance:" << setw(12) << minBalance << endl;
+	cout << left << setw(25) << "Interest Rate:" << setw(12) << interestRate << endl;
+	cout << left << setw(25) << "Checks Written:" << setw(12) << checks.size() << endl;
 
 	cout << endl; //spacing
 

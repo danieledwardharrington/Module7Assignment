@@ -103,10 +103,10 @@ void serviceChargeChecking::createStatement() {
 	cout << setprecision(2);
 
 	//account details
-	cout << setw(25) << "Account Balance:" << setw(12) << accountBalance << endl;
-	cout << setw(25) << "Maximum Checks:" << setw(12) << maxChecks << endl;
-	cout << setw(25) << "Checks Written:" << setw(12) << checks.size() << endl;
-	cout << setw(25) << "Monthly Fee:" << setw(12) << monthlyFee << endl;
+	cout << left << setw(25) << "Account Balance:" << setw(12) << accountBalance << endl;
+	cout << left << setw(25) << "Maximum Checks:" << setw(12) << maxChecks << endl;
+	cout << left << setw(25) << "Checks Written:" << setw(12) << checks.size() << endl;
+	cout << left << setw(25) << "Monthly Fee:" << setw(12) << monthlyFee << endl;
 
 	cout << endl;
 

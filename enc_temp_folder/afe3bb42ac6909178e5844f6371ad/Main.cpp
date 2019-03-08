@@ -211,7 +211,7 @@ void createStandardSavings() {
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
-	getline(cin, holderName);
+	cin >> holderName;
 	standardSavings.setHolderName(holderName);
 
 	cout << "Set initial account balance:" << endl;
@@ -338,7 +338,7 @@ void createHighInterestSavings() {
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
-	getline(cin, holderName);
+	cin >> holderName;
 	highSavings.setHolderName(holderName);
 
 	cout << "Set initial account balance (Starting balance must be AT LEAST " << STANDARD_MIN_BALANCE << "):" << endl;
@@ -464,7 +464,7 @@ void createServiceChargeChecking() {
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
-	getline(cin, holderName);
+	cin >> holderName;
 	serviceAccount.setHolderName(holderName);
 
 	cout << "Set initial account balance:" << endl;
@@ -650,7 +650,7 @@ void createNoServiceChargeChecking() {
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
-	getline(cin, holderName);
+	cin >> holderName;
 	noServiceAccount.setHolderName(holderName);
 
 	cout << "Set initial account balance:" << endl;
@@ -818,7 +818,7 @@ void createHighInterestChecking() {
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
-	getline(cin, holderName);
+	cin >> holderName;
 	noServiceAccount.setHolderName(holderName);
 
 	cout << "Set initial account balance:" << endl;
@@ -987,7 +987,7 @@ void createCoD() {
 
 	//getting user input for the rest
 	cout << "Enter the account holder name:" << endl;
-	getline(cin, holderName);
+	cin >> holderName;
 	codAccount.setHolderName(holderName);
 
 	cout << "Set initial account balance:" << endl;
